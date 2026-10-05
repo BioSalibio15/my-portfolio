@@ -282,6 +282,64 @@ nav{display:flex; align-items:center; justify-content:space-between; padding:18p
 .badge.completed{color:var(--accent2); border-color:var(--accent2);}
 .badge.training{color:var(--accent); border-color:var(--accent);}
 .badge.planned{color:var(--text2);}
+  
+/* ---------- Credential Verification ---------- */
+.credential-verification{
+  margin-top:28px;
+  padding:22px 24px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-left:3px solid var(--accent);
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  flex-wrap:wrap;
+}
+
+.credential-verification-content{
+  flex:1;
+  min-width:260px;
+}
+
+.credential-verification-label{
+  font-family:var(--font-mono);
+  font-size:.72rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--accent2);
+  margin-bottom:7px;
+}
+
+.credential-verification h4{
+  font-size:1rem;
+  margin:0 0 6px;
+}
+
+.credential-verification p{
+  color:var(--text2);
+  font-size:.84rem;
+  line-height:1.6;
+  margin:0;
+  max-width:700px;
+}
+
+.credential-verification .btn{
+  flex-shrink:0;
+}
+
+@media (max-width:600px){
+  .credential-verification{
+    padding:20px;
+  }
+
+  .credential-verification .btn{
+    width:100%;
+    text-align:center;
+    justify-content:center;
+  }
+}
 
 /* ---------- Bring / Roadmap ---------- */
 .bring-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
@@ -809,6 +867,28 @@ footer{padding:40px 0; text-align:center; color:var(--text2); font-size:.82rem; 
         <span class="badge training">Training</span>
       </div>
     </div>
+    </div>
+
+    <!-- CREDENTIAL VERIFICATION -->
+    <div class="credential-verification reveal">
+      <div class="credential-verification-content">
+        <div class="credential-verification-label">Credential Verification</div>
+        <h4>Original certificates available upon request</h4>
+        <p>
+          Certificate documents are not publicly displayed to protect personal
+          and credential information. Original certificates can be provided
+          directly to prospective employers or clients for verification.
+        </p>
+      </div>
+
+      <a href="#contact" class="btn btn-ghost">
+        Request Verification
+      </a>
+    </div>
+
+  </div>
+</section>
+    
   </div>
 </section>
 
