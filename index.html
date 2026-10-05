@@ -285,12 +285,17 @@ nav{display:flex; align-items:center; justify-content:space-between; padding:18p
   
 /* ---------- Compact Credential Verification ---------- */
 .credential-verification{
-  margin-top:18px;
+  width:100%;
+  max-width:1130px;
+  margin:18px auto 0;
   padding:12px 18px;
+  box-sizing:border-box;
+
   background:var(--card);
   border:1px solid var(--border);
   border-left:2px solid var(--accent);
   border-radius:8px;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -864,27 +869,27 @@ footer{padding:40px 0; text-align:center; color:var(--text2); font-size:.82rem; 
         <div class="cert-info"><h4>Google Cloud Associate Engineer</h4><div class="org">Training</div></div>
         <span class="badge training">Training</span>
       </div>
+      
+    <!-- CREDENTIAL VERIFICATION -->
+    <div class="credential-verification reveal">
+      <div class="credential-verification-content">
+        <div class="credential-verification-label">
+          Credential Verification
+        </div>
+
+        <h4>Original certificates available upon request</h4>
+
+        <p>
+          Certificate documents are not publicly displayed to protect personal
+          and credential information. Original certificates can be provided
+          directly to prospective employers or clients for verification.
+        </p>
+      </div>
+
+      <a href="#contact" class="btn btn-ghost">
+        Request Verification
+      </a>
     </div>
-    </div>
-
-<!-- CREDENTIAL VERIFICATION -->
-<div class="credential-verification reveal">
-  <div class="credential-verification-content">
-    <div class="credential-verification-label">
-      Credential Verification
-    </div>
-
-    <h4>Original certificates available upon request</h4>
-
-    <p>
-      Available for employer or client verification.
-    </p>
-  </div>
-
-  <a href="#contact" class="btn btn-ghost">
-    Request Verification
-  </a>
-</div>
 
   </div>
 </section>
