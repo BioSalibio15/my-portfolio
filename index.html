@@ -85,7 +85,7 @@ button{font-family:var(--font-body); cursor:pointer;}
 .cursor-ring.hover{width:56px; height:56px; background:rgba(0,173,181,0.08);}
 .cursor-glow{position:fixed; top:0; left:0; width:340px; height:340px; border-radius:50%; pointer-events:none; z-index:1;
   background:radial-gradient(circle, rgba(0,173,181,0.05), transparent 70%); transform:translate(-50%,-50%);}
-@media (hover:none), (pointer:coarse){
+@media (hover:none) and (pointer:coarse){
   .cursor-dot,.cursor-ring,.cursor-glow{display:none;}
 }
 body.no-custom-cursor{cursor:auto;}
@@ -1459,13 +1459,14 @@ document.querySelectorAll('#projFilters .tab-btn').forEach(btn=>{
 });
 const modalBackdrop = document.getElementById('modalBackdrop');
 let projModalLastFocus = null;
-const defaultEvidenceHTML = `<div class="evidence-ph"><span>Evidence will const defaultEvidenceHTML = `
+
+const defaultEvidenceHTML = `
   <div class="evidence-ph">
     <span>Evidence will be added as this lab progresses.</span>
   </div>
 `;
 
-const evLightbox = document.getElementById('evLightbox'); added as this lab progresses.</span></div>`;const evLightbox = document.getElementById('evLightbox');
+const evLightbox = document.getElementById('evLightbox');
 const evLightboxImg = document.getElementById('evLightboxImg');
 const evLightboxCap = document.getElementById('evLightboxCap');
 function openEvidenceLightbox(src, caption){
