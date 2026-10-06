@@ -268,6 +268,13 @@ nav{display:flex; align-items:center; justify-content:space-between; padding:18p
 .cert-thumb{width:52px; height:52px; border-radius:8px; border:1px dashed var(--border); background:var(--bg2); flex-shrink:0; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:.2s;}
 .cert-thumb:hover, .cert-thumb:active, .cert-thumb:focus-visible{border-color:var(--accent); background:var(--hover-bg); box-shadow:0 0 0 3px rgba(0,173,181,0.22);}
 .cert-thumb span{font-size:1.1rem; opacity:.5;}
+  .cert-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  border-radius:7px;
+}
 .cert-preview{position:fixed; z-index:999; width:220px; pointer-events:none; opacity:0; transform:translateY(6px) scale(.97); transition:opacity .15s ease, transform .15s ease;}
 .cert-preview.show{opacity:1; transform:translateY(0) scale(1);}
 .cert-preview-inner{background:var(--card); border:1px solid var(--accent); border-radius:10px; box-shadow:var(--shadow); padding:10px;}
@@ -843,12 +850,13 @@ footer{padding:40px 0; text-align:center; color:var(--text2); font-size:.82rem; 
     <h3 class="cert-group-title">Completed</h3>
     <div class="cert-list">
       <div class="cert-row reveal">
-      <div class="cert-thumb"
+     <div class="cert-thumb"
      tabindex="0"
      data-cert="Google IT Support Professional Certificate"
      data-image="Certificates/google-it-support.png">
-     <span>🏅</span>
-       </div>
+  <img src="Certificates/google-it-support.png"
+       alt="Google IT Support Professional Certificate">
+</div>
         <div class="cert-info"><h4>Google IT Support Professional Certificate</h4><div class="org">Professional Certificate</div></div>
         <span class="badge completed">Completed</span>
       </div>
@@ -874,6 +882,26 @@ footer{padding:40px 0; text-align:center; color:var(--text2); font-size:.82rem; 
         <span class="badge completed">Completed</span>
       </div>
     </div>
+    <div class="cert-row reveal">
+
+  <div class="cert-thumb"
+       tabindex="0"
+       data-cert="Lean Six Sigma White Belt Certification"
+       data-image="Certificates/six-sigma-white-belt.png">
+
+    <img src="Certificates/six-sigma-white-belt.png"
+         alt="Lean Six Sigma White Belt Certification">
+
+  </div>
+
+  <div class="cert-info">
+    <h4>Lean Six Sigma White Belt Certification</h4>
+    <div class="org">Certification</div>
+  </div>
+
+  <span class="badge completed">Completed</span>
+
+</div>
 
     <h3 class="cert-group-title">Training</h3>
     <div class="cert-list">
