@@ -779,8 +779,8 @@ footer{padding:40px 0; text-align:center; color:var(--text2); font-size:.82rem; 
     </div>
     <div id="tsteps">
       <div class="tstep open"><div class="tstep-head"><span class="idx">01</span><span>Understand</span><span class="chev">⌄</span></div><div class="tstep-body"><p>Understand the issue and business impact.</p></div></div>
-      <div class="tstep"><div class="tstep-head"><span class="idx">02</span><span>Investigate</span><span class="chev">⌄</span></div><div class="tstep-body"><p>Gather symptoms, errors, logs, and environmental information.</p></div></div>
-      <div class="tstep"><div class="tstep-head"><span class="idx">03</span><span>Isolate</span><span class="chev">⌄</span></div><div class="tstep-body"><p>Determine whether the problem involves endpoint, identity, network, application, or infrastructure.</p></div></div>
+      <div class="tstep"><div class="tstep-head"><span class="idx">02</span><span>Investigate</span><span class="chev">⌄</span></div><div class="tstep-body"><p>Gather symptoms, error messages, logs, recent changes, and environmental context to establish the scope of the issue.</p></div></div>
+      <div class="tstep"><div class="tstep-head"><span class="idx">03</span><span>Isolate</span><span class="chev">⌄</span></div><div class="tstep-body"><p>Isolate the issue across endpoint, identity, network, application, or infrastructure layers to identify the most likely root cause.</p></div></div>
       <div class="tstep"><div class="tstep-head"><span class="idx">04</span><span>Troubleshoot</span><span class="chev">⌄</span></div><div class="tstep-body"><p>Test possible causes systematically.</p></div></div>
       <div class="tstep"><div class="tstep-head"><span class="idx">05</span><span>Resolve</span><span class="chev">⌄</span></div><div class="tstep-body"><p>Apply the appropriate solution.</p></div></div>
       <div class="tstep"><div class="tstep-head"><span class="idx">06</span><span>Document</span><span class="chev">⌄</span></div><div class="tstep-body"><p>Document the resolution and communicate clearly.</p></div></div>
@@ -793,9 +793,9 @@ footer{padding:40px 0; text-align:center; color:var(--text2); font-size:.82rem; 
 <section id="projects">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">08 — Portfolio</span>
+      <span class="eyebrow">08 — Hands-On Projects</span>
       <h2>Project Portfolio</h2>
-      <p>Personal labs and hands-on projects — clearly labeled as such.</p>
+      <p>Practical labs and projects demonstrating hands-on work across identity, cloud, infrastructure, IT support, and automation.</p>
     </div>
     <div class="filters" id="projFilters">
       <button class="tab-btn active" data-filter="all">All</button>
@@ -1316,8 +1316,8 @@ document.querySelectorAll('#tsteps .tstep-head').forEach(head=>{
 
 /* ---------- Projects ---------- */
 const projects = [
-  {id:'iam-lab', cat:'iam', title:'IAM Home Lab', tag:'Personal Lab / Hands-on Project',
-   short:'Built a Keycloak realm with department groups, RBAC roles, and a working OIDC login into a test employee portal.',
+  {id:'iam-lab', cat:'iam', title:'IAM Home Lab — Keycloak RBAC & OIDC', tag:'Personal Lab / Hands-on Project',
+   short:'Built a Keycloak IAM environment with department-based groups, RBAC role mappings, and end-to-end OIDC authentication for a test employee portal.',
    tech:'Keycloak, OIDC, Realms, Groups, RBAC Roles, Client Configuration, Node.js test app',
    objective:'Build a working identity and access management environment using Keycloak to practice core IAM concepts end to end, from realm setup to a live OIDC login.',
    env:'Personal home lab environment (Keycloak server + a small Node.js employee portal app used as the relying party).',
@@ -1348,8 +1348,8 @@ const projects = [
    learned:'Built hands-on familiarity with core AWS services beyond formal training.',
    status:'In Progress'},
   
-  {id:'itsm-lab', cat:'support', title:'ITSM / Helpdesk Lab', tag:'Personal Lab / Hands-on Project',
-   short:'Simulating IT service management workflows using Jira Service Management, including incident tracking, ticket prioritization, and SLA reporting.',
+  {id:'itsm-lab', cat:'support', title:'ITSM Lab — Jira Service Management', tag:'Personal Lab / Hands-on Project',
+   short:'Built an ITSM lab in Jira Service Management to practice incident tracking, ticket prioritization, support workflows, and SLA performance monitoring.',
    tech:'Jira Service Management, Incident Management, Ticket Lifecycle, Priority Management, SLA Tracking, Dashboards, Reporting',
    objective:'Build a hands-on IT service management lab in Jira Service Management to practice handling support requests, managing incidents, tracking ticket status and priorities, and monitoring service-level performance.',
    env:'Jira Service Management personal lab / sandbox environment.',
