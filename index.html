@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sheila Salibio | Senior Infrastructure Support Engineer — IAM &amp; Cloud Security</title>
-<meta name="description" content="Sheila Salibio — Senior Infrastructure Support Engineer with a background in L2 IT support, enterprise infrastructure, and cloud technologies, building toward Identity &amp; Access Management and Cloud Security.">
+<title>Sheila Salibio | Senior Infrastructure Support Engineer | Cloud & IAM</title>
+  <meta name="description" content="Sheila Salibio — Senior Infrastructure Support Engineer with a background in L2 IT support, enterprise infrastructure, and cloud technologies, building toward Identity &amp; Access Management and Cloud Security.">
 <meta property="og:title" content="Sheila Salibio | Senior Infrastructure Support Engineer">
 <meta property="og:description" content="Experienced in solving today's IT problems. Building the skills to secure tomorrow's cloud and identity environments.">
 <meta property="og:type" content="website">
@@ -268,24 +268,17 @@ nav{display:flex; align-items:center; justify-content:space-between; padding:18p
 .cert-thumb{width:52px; height:52px; border-radius:8px; border:1px dashed var(--border); background:var(--bg2); flex-shrink:0; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:.2s;}
 .cert-thumb:hover, .cert-thumb:active, .cert-thumb:focus-visible{border-color:var(--accent); background:var(--hover-bg); box-shadow:0 0 0 3px rgba(0,173,181,0.22);}
 .cert-thumb span{font-size:1.1rem; opacity:.5;}
-  .cert-thumb img{
-  width:100%;
-  height:100%;
- .cert-thumb img{
+.cert-thumb img{
   width:100%;
   height:100%;
   object-fit:contain;
   object-position:center;
   border-radius:7px;
 }
-    
-  object-position:center;
-  border-radius:7px;
-}
 .cert-preview{position:fixed; z-index:999; width:220px; pointer-events:none; opacity:0; transform:translateY(6px) scale(.97); transition:opacity .15s ease, transform .15s ease;}
 .cert-preview.show{opacity:1; transform:translateY(0) scale(1);}
 .cert-preview-inner{background:var(--card); border:1px solid var(--accent); border-radius:10px; box-shadow:var(--shadow); padding:10px;}
-.cert-preview-img{aspect-ratio:4/3; border-radius:6px; border:1px dashed var(--border); background:var(--bg2); display:flex; align-items:center; justify-content:center; text-align:center; padding:8px;}
+.cert-preview-img{}
 .cert-preview-img{
   aspect-ratio:4/3;
   border-radius:6px;
@@ -1039,9 +1032,9 @@ footer{padding:40px 0; text-align:center; color:var(--text2); font-size:.82rem; 
 <section id="contact">
   <div class="wrap">
     <div class="contact-card reveal">
-      <span class="eyebrow">Get In Touch</span>
+      <span class="eyebrow">Let’s Connect</span>
       <h2 style="margin-top:10px;">Let's Connect</h2>
-      <p style="color:var(--text2); max-width:560px; margin:16px auto 0;">Whether you're looking for an experienced IT Support professional, L2 Infrastructure Engineer, Technical Support Specialist, or someone growing into IAM and Cloud Security, I'd be happy to connect.</p>
+      <p style="color:var(--text2); max-width:560px; margin:16px auto 0;">Open to opportunities in enterprise infrastructure support, cloud technologies, and identity &amp; access management. Feel free to connect with me through email, LinkedIn, or GitHub.</p>
       <div class="contact-methods">
       <a href="mailto:bio.salibio.tech@gmail.com">Email</a>
       <a href="https://www.linkedin.com/in/sheila-salibio-tech/"
@@ -1072,7 +1065,7 @@ footer{padding:40px 0; text-align:center; color:var(--text2); font-size:.82rem; 
 
 <footer>
   <div class="wrap">
-    &copy; <span id="year"></span> Sheila Salibio. Support · Infrastructure · Cloud · Identity · Security.
+    &copy; <span id="year"></span> Sheila Salibio. Enterprise IT · Infrastructure · Cloud · Identity.
   </div>
 </footer>
 
@@ -1330,10 +1323,10 @@ const projects = [
     {img:'IAM/02-Department-Groups.png',caption:'Department groups: Finance, HR, IT, Legal, Marketing and Sales.'},
     {img:'IAM/03-User-Group-Assignment.png',caption:'Users created and assigned to department groups.'},
     {img:'IAM/04-RBAC-Roles-Created.png',caption:'RBAC realm roles defined per department.'},
-    {img:'IAM/05-RBAC-Roles-Mapping-HR.png',caption:'HR group mappedtothe HR_User role.'},
-    {img:'IAM/05-RBAC-Roles-Mapping-IT.png',caption:'IT group mappedtothe IT_Admin role.'},
-    {img:'IAM/05-Employee-Portal-Client.png',caption:'OIDC client created for the employeee portal with redirect URIs and web origin.'},
-    {img:'IAM/06-Keycloak-OIDC-Client-Configuration.png',caption:'OIDC client configuration details.'},
+    {img:'IAM/05-RBAC-Roles-Mapping-HR.png',caption:'HR group mapped to the HR_User role.'},
+{img:'IAM/05-RBAC-Roles-Mapping-IT.png',caption:'IT group mapped to the IT_Admin role.'},
+{img:'IAM/05-Employee-Portal-Client.png',caption:'OIDC client created for the employee portal with redirect URIs and web origin.'},
+     {img:'IAM/06-Keycloak-OIDC-Client-Configuration.png',caption:'OIDC client configuration details.'},
     {img:'IAM/05-Employee-Portal-Running.png',caption:'Employee portal app running ready for SSO login.'},
     {img:'IAM/07-OIDC-Keycloak-Authentication-Redirect.png',caption:'Troubleshooting the OIDC redirect/callback flow.'},
     {img:'IAM/07-OIDC-Login-Success.png',caption:'Successful OIDC login returning the authenticated employee\'s identity claims.'},
