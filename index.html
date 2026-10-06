@@ -99,8 +99,24 @@ nav{display:flex; align-items:center; justify-content:space-between; padding:18p
 .nav-links{display:flex; gap:28px; list-style:none; align-items:center;}
 .nav-links a{font-size:.88rem; color:var(--text2); position:relative; padding:4px 0; transition:color .2s;}
 .nav-links a:hover, .nav-links a.active{color:var(--text);}
-.nav-links a.active::after{content:''; position:absolute; left:0; right:0; bottom:-6px; height:2px; background:linear-gradient(90deg,var(--accent),var(--accent2));}
-.nav-cta{display:flex; align-items:center; gap:14px;}
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-6px;
+  height:2px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  transform:scaleX(0);
+  transform-origin:center;
+  transition:transform .2s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after{
+  transform:scaleX(1);
+}
+  .nav-cta{display:flex; align-items:center; gap:14px;}
 .btn{display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border-radius:8px; font-size:.85rem; font-weight:600; border:1px solid transparent; transition:transform .18s ease, box-shadow .18s ease;}
 .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent2)); color:#222831; font-weight:700;}
 .btn-primary:hover{transform:translateY(-3px); box-shadow:0 10px 24px rgba(0,173,181,0.25);}
@@ -237,8 +253,14 @@ nav{display:flex; align-items:center; justify-content:space-between; padding:18p
 .filters{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:30px;}
 .proj-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
 .proj-card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:26px; cursor:pointer; transition:.2s;}
-.proj-card:hover, .proj-card:active{transform:translateY(-4px); border-color:var(--accent); background:var(--hover-bg); box-shadow:var(--shadow-hover);}
-.proj-tag{display:inline-block; font-family:var(--font-mono); font-size:.68rem; color:var(--accent2); background:rgba(0,173,181,0.1); padding:4px 10px; border-radius:999px; margin-bottom:12px;}
+.proj-card:hover,
+.proj-card:focus-within{
+  transform:translateY(-6px);
+  border-color:var(--accent);
+  background:var(--hover-bg);
+  box-shadow:0 12px 30px rgba(0,173,181,.14);
+}
+  .proj-tag{display:inline-block; font-family:var(--font-mono); font-size:.68rem; color:var(--accent2); background:rgba(0,173,181,0.1); padding:4px 10px; border-radius:999px; margin-bottom:12px;}
 .proj-card h3{font-size:1.1rem; margin-bottom:8px;}
 .proj-card .tech{color:var(--text2); font-size:.83rem; margin-top:10px;}
 .proj-card-top{display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;}
@@ -1110,7 +1132,7 @@ footer{padding:40px 0; text-align:center; color:var(--text2); font-size:.82rem; 
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const isTouch = window.matchMedia('(hover:none), (pointer:coarse)').matches;
+const isTouch = window.matchMedia('(hover:none) and (pointer:coarse)').matches;
 
 /* ---------- Theme toggle ---------- */
 const root = document.documentElement;
@@ -1336,12 +1358,20 @@ document.querySelectorAll('#skillTabs .tab-btn').forEach(btn=>{
 renderSkills('it');
 
 /* ---------- Troubleshooting accordion ---------- */
-document.querySelectorAll('#tsteps .tstep-head').forEach(head=>{
-  head.addEventListener('click', ()=>{
-    const step = head.parentElement;
+document.querySelectorAll('.tstep-head').forEach(head => {
+  head.addEventListener('click', () => {
+    const step = head.closest('.tstep');
+    if (!step) return;
+
     const wasOpen = step.classList.contains('open');
-    document.querySelectorAll('#tsteps .tstep').forEach(s=> s.classList.remove('open'));
-    if(!wasOpen) step.classList.add('open');
+
+    document.querySelectorAll('.tstep').forEach(item => {
+      item.classList.remove('open');
+    });
+
+    if (!wasOpen) {
+      step.classList.add('open');
+    }
   });
 });
 
@@ -1515,10 +1545,10 @@ document.querySelectorAll('#roadmap .rm-node').forEach(node=>{
   const previewTitle = document.getElementById('certPreviewTitle');
   const previewImg = document.getElementById('certPreviewImg');
   const thumbs = document.querySelectorAll('.cert-thumb');
-  const isTouch = window.matchMedia('(hover: none)').matches;
-
-  if (!preview || !previewImg || isTouch) return;
-
+const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+  
+if (!preview || !previewImg || isTouchDevice) return;
+  
   function positionPreview(x, y){
     const offset = 18;
     const pw = preview.offsetWidth || 220;
