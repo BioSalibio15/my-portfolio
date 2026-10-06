@@ -295,8 +295,17 @@ nav{display:flex; align-items:center; justify-content:space-between; padding:18p
 .ev-lightbox-close{position:absolute; top:20px; right:24px; width:38px; height:38px; border-radius:50%; border:1px solid rgba(238,238,238,.3); background:rgba(255,255,255,.06); color:#EEEEEE; font-size:1.1rem; display:flex; align-items:center; justify-content:center;}
 
 /* ---------- Certifications ---------- */
-.cert-group-title{font-family:var(--font-mono); font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--accent2); margin:36px 0 14px;}
-.cert-group-title:first-of-type{margin-top:0;}
+.cert-group-title{
+  font-family:var(--font-mono);
+  font-size:.9rem;
+  font-weight:600;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--accent2);
+  margin:42px 0 18px;
+  line-height:1.4;
+}
+  .cert-group-title:first-of-type{margin-top:0;}
 .cert-list{display:flex; flex-direction:column; gap:14px;}
 .cert-row{display:flex; align-items:center; gap:18px; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:20px 24px; flex-wrap:wrap;}
 .cert-thumb{width:52px; height:52px; border-radius:8px; border:1px dashed var(--border); background:var(--bg2); flex-shrink:0; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:.2s;}
