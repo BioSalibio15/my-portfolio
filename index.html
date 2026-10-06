@@ -360,12 +360,16 @@ nav{display:flex; align-items:center; justify-content:space-between; padding:18p
 
 @media (max-width:600px){
   .credential-verification{
-    padding:12px 14px;
+    flex-direction:column;
+    align-items:flex-start;
+    padding:14px;
     gap:12px;
   }
 
   .credential-verification .btn{
-    padding:7px 11px;
+    width:100%;
+    justify-content:center;
+    padding:9px 12px;
   }
 }
 /* ---------- Bring / Roadmap ---------- */
@@ -413,6 +417,10 @@ footer{padding:40px 0; text-align:center; color:var(--text2); font-size:.82rem; 
   .rm-node{width:100%;}
 }
 @media (max-width:768px){
+  .hero{
+  padding:120px 0 76px;
+  min-height:auto;
+}
   .nav-links{display:none;}
   .nav-cta .btn-ghost{display:none;}
   .hamburger{display:flex;}
@@ -422,6 +430,35 @@ footer{padding:40px 0; text-align:center; color:var(--text2); font-size:.82rem; 
   .resume-card, .contact-card{padding:32px 22px;}
 }
 @media (max-width:480px){
+  .modal{
+  padding:26px 18px;
+  max-height:90vh;
+}
+
+.modal-backdrop{
+  padding:12px;
+}
+  .hero-actions{
+  flex-direction:column;
+}
+
+.hero-actions .btn{
+  width:100%;
+  justify-content:center;
+}
+  .cert-row{
+  padding:16px;
+  gap:14px;
+}
+
+.cert-row .cert-info{
+  min-width:0;
+  flex:1;
+}
+
+.cert-row .badge{
+  margin-left:70px;
+}
   .stats-grid{grid-template-columns:repeat(2,1fr);}
   .ach-grid{grid-template-columns:1fr 1fr;}
   .bring-grid{grid-template-columns:1fr;}
