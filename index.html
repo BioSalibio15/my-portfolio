@@ -278,7 +278,6 @@ nav{display:flex; align-items:center; justify-content:space-between; padding:18p
 .cert-preview{position:fixed; z-index:999; width:220px; pointer-events:none; opacity:0; transform:translateY(6px) scale(.97); transition:opacity .15s ease, transform .15s ease;}
 .cert-preview.show{opacity:1; transform:translateY(0) scale(1);}
 .cert-preview-inner{background:var(--card); border:1px solid var(--accent); border-radius:10px; box-shadow:var(--shadow); padding:10px;}
-.cert-preview-img{}
 .cert-preview-img{
   aspect-ratio:4/3;
   border-radius:6px;
@@ -1036,15 +1035,15 @@ footer{padding:40px 0; text-align:center; color:var(--text2); font-size:.82rem; 
       <h2>My Next Chapter</h2>
       <p>Building on my foundation in enterprise IT and infrastructure support, I am expanding my expertise in Identity &amp; Access Management, cloud infrastructure, and cloud security.</p>
     </div>
-    <div class="roadmap" id="roadmap">
+        <div class="roadmap" id="roadmap">
       <div class="rm-connector"></div>
       <div class="rm-node" data-rm="0">IT Support</div>
       <div class="rm-node" data-rm="1">L2 Infrastructure Support</div>
       <div class="rm-node" data-rm="2">Cloud / Infrastructure</div>
       <div class="rm-node" data-rm="3">IAM</div>
-<div class="rm-node final" data-rm="4">Cloud &amp; Identity Security</div>
-    
-</div>
+      <div class="rm-node final" data-rm="4">Cloud &amp; Identity Security</div>
+    </div>
+  </div>
 </section>
 
 <!-- CONTACT -->
@@ -1410,7 +1409,13 @@ document.querySelectorAll('#projFilters .tab-btn').forEach(btn=>{
 });
 const modalBackdrop = document.getElementById('modalBackdrop');
 let projModalLastFocus = null;
-const defaultEvidenceHTML = `<div class="evidence-ph"><span>Evidence will be added as this lab progresses.</span></div>`;const evLightbox = document.getElementById('evLightbox');
+const defaultEvidenceHTML = `<div class="evidence-ph"><span>Evidence will const defaultEvidenceHTML = `
+  <div class="evidence-ph">
+    <span>Evidence will be added as this lab progresses.</span>
+  </div>
+`;
+
+const evLightbox = document.getElementById('evLightbox'); added as this lab progresses.</span></div>`;const evLightbox = document.getElementById('evLightbox');
 const evLightboxImg = document.getElementById('evLightboxImg');
 const evLightboxCap = document.getElementById('evLightboxCap');
 function openEvidenceLightbox(src, caption){
