@@ -817,12 +817,7 @@ footer{padding:40px 0; text-align:center; color:var(--text2); font-size:.82rem; 
     </dl>
     <div class="evidence-block">
       <span class="k">Evidence</span>
-      <div class="evidence-grid" id="modalEvidenceGrid">
-        <div class="evidence-ph"><span>ADD ARCHITECTURE<br>DIAGRAM HERE</span></div>
-        <div class="evidence-ph"><span>ADD CONFIGURATION<br>SCREENSHOT HERE</span></div>
-        <div class="evidence-ph"><span>ADD TROUBLESHOOTING<br>EVIDENCE HERE</span></div>
-        <div class="evidence-ph"><span>ADD FINAL RESULT<br>SCREENSHOT HERE</span></div>
-      </div>
+      <div class="evidence-grid" id="modalEvidenceGrid"></div>
     </div>
   </div>
 </div>
@@ -1378,8 +1373,7 @@ document.querySelectorAll('#projFilters .tab-btn').forEach(btn=>{
 });
 const modalBackdrop = document.getElementById('modalBackdrop');
 let projModalLastFocus = null;
-const defaultEvidenceHTML = `<div class="evidence-ph"><span>ADD ARCHITECTURE<br>DIAGRAM HERE</span></div><div class="evidence-ph"><span>ADD CONFIGURATION<br>SCREENSHOT HERE</span></div><div class="evidence-ph"><span>ADD TROUBLESHOOTING<br>EVIDENCE HERE</span></div><div class="evidence-ph"><span>ADD FINAL RESULT<br>SCREENSHOT HERE</span></div>`;
-const evLightbox = document.getElementById('evLightbox');
+const defaultEvidenceHTML = `<div class="evidence-ph"><span>Evidence will be added as this lab progresses.</span></div>`;const evLightbox = document.getElementById('evLightbox');
 const evLightboxImg = document.getElementById('evLightboxImg');
 const evLightboxCap = document.getElementById('evLightboxCap');
 function openEvidenceLightbox(src, caption){
