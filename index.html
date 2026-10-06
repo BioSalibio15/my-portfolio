@@ -272,7 +272,24 @@ nav{display:flex; align-items:center; justify-content:space-between; padding:18p
 .cert-preview.show{opacity:1; transform:translateY(0) scale(1);}
 .cert-preview-inner{background:var(--card); border:1px solid var(--accent); border-radius:10px; box-shadow:var(--shadow); padding:10px;}
 .cert-preview-img{aspect-ratio:4/3; border-radius:6px; border:1px dashed var(--border); background:var(--bg2); display:flex; align-items:center; justify-content:center; text-align:center; padding:8px;}
-.cert-preview-img span{font-family:var(--font-mono); font-size:.65rem; color:var(--text2); line-height:1.4;}
+.cert-preview-img{
+  aspect-ratio:4/3;
+  border-radius:6px;
+  border:1px solid var(--border);
+  background:var(--bg2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  padding:0;
+}
+
+.cert-preview-img img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
 .cert-preview-title{font-family:var(--font-mono); font-size:.7rem; color:var(--text); margin-top:8px; text-align:center; line-height:1.4;}
 @media (hover:none){ .cert-preview{display:none;} }
 .cert-row .cert-info{flex:1; min-width:180px;}
@@ -905,7 +922,9 @@ footer{padding:40px 0; text-align:center; color:var(--text2); font-size:.82rem; 
 
 <div class="cert-preview" id="certPreview" aria-hidden="true">
   <div class="cert-preview-inner">
-    <div class="cert-preview-img"><span>ADD CERTIFICATE<br>IMAGE HERE</span></div>
+    <div class="cert-preview-img">
+      <img id="certPreviewImg" src="" alt="Certificate preview">
+    </div>
     <div class="cert-preview-title" id="certPreviewTitle"></div>
   </div>
 </div>
@@ -1387,43 +1406,70 @@ document.querySelectorAll('#roadmap .rm-node').forEach(node=>{
 (function(){
   const preview = document.getElementById('certPreview');
   const previewTitle = document.getElementById('certPreviewTitle');
+  const previewImg = document.getElementById('certPreviewImg');
   const thumbs = document.querySelectorAll('.cert-thumb');
   const isTouch = window.matchMedia('(hover: none)').matches;
-  if (!preview || isTouch) return;
+
+  if (!preview || !previewImg || isTouch) return;
 
   function positionPreview(x, y){
     const offset = 18;
     const pw = preview.offsetWidth || 220;
     const ph = preview.offsetHeight || 180;
+
     let left = x + offset;
     let top = y + offset;
-    if (left + pw > window.innerWidth - 12) left = x - pw - offset;
-    if (top + ph > window.innerHeight - 12) top = y - ph - offset;
+
+    if (left + pw > window.innerWidth - 12) {
+      left = x - pw - offset;
+    }
+
+    if (top + ph > window.innerHeight - 12) {
+      top = y - ph - offset;
+    }
+
     preview.style.left = left + 'px';
     preview.style.top = top + 'px';
   }
 
-  thumbs.forEach(thumb=>{
-    thumb.addEventListener('mouseenter', e=>{
-      previewTitle.textContent = thumb.dataset.cert || '';
+  function showCertificate(thumb, x, y){
+    const title = thumb.dataset.cert || '';
+    const image = thumb.dataset.image || '';
+
+    previewTitle.textContent = title;
+
+    if (!image) return;
+
+    previewImg.src = image;
+    previewImg.alt = title + ' certificate';
+
+    positionPreview(x, y);
+    preview.classList.add('show');
+  }
+
+  function hideCertificate(){
+    preview.classList.remove('show');
+  }
+
+  thumbs.forEach(thumb => {
+
+    thumb.addEventListener('mouseenter', e => {
+      showCertificate(thumb, e.clientX, e.clientY);
+    });
+
+    thumb.addEventListener('mousemove', e => {
       positionPreview(e.clientX, e.clientY);
-      preview.classList.add('show');
     });
-    thumb.addEventListener('mousemove', e=>{
-      positionPreview(e.clientX, e.clientY);
-    });
-    thumb.addEventListener('mouseleave', ()=>{
-      preview.classList.remove('show');
-    });
-    thumb.addEventListener('focus', e=>{
+
+    thumb.addEventListener('mouseleave', hideCertificate);
+
+    thumb.addEventListener('focus', () => {
       const rect = thumb.getBoundingClientRect();
-      previewTitle.textContent = thumb.dataset.cert || '';
-      positionPreview(rect.left, rect.bottom);
-      preview.classList.add('show');
+      showCertificate(thumb, rect.left, rect.bottom);
     });
-    thumb.addEventListener('blur', ()=>{
-      preview.classList.remove('show');
-    });
+
+    thumb.addEventListener('blur', hideCertificate);
+
   });
 })();
 
